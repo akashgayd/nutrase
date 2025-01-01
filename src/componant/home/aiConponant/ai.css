@@ -111,7 +111,7 @@ body {
 }
 
 .many-input-field {
-    width: 70%;
+    width: 60%;
     max-width: 500px;
     height: auto;
     display: flex;
@@ -137,7 +137,7 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 17px;
 }
 
 .many-input-field button {
@@ -190,13 +190,13 @@ body {
 
     .result-display {
         width: 90%;
-        max-height: 60%;
+        max-height: 75%;
         padding: 15px;
     }
 
     .many-input-field {
         width: 100%;
-        padding: 15px;
+        padding: 10px;
     }
 
     .many-input-field form {
@@ -217,7 +217,7 @@ body {
     }
 
     .fitness input, .fitness select {
-        height: 35px;
+        height: 45px;
         font-size: 12px;
     }
 
