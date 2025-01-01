@@ -68,10 +68,6 @@ body {
     width: 8px;
 }
 
-.result-display::-webkit-scrollbar-thumb {
-    background: #ff5722;
-    border-radius: 4px;
-}
 
 .result-display::-webkit-scrollbar-track {
     background: #f9f9f9;
@@ -133,7 +129,7 @@ body {
 
 .fitness input, .fitness select {
     width: 100%;
-    height: 40px;
+    height: 45px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -141,25 +137,38 @@ body {
 }
 
 .many-input-field button {
-    width: 100%;
-    height: 45px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+  
+          background-image: linear-gradient(to right, #F0F2F0 0%, #000C40  51%, #F0F2F0  100%)}
+          .many-input-field button {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            border: none;
+          }
 
-.many-input-field button:hover {
+          .many-input-field button:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+         
+
+
+/* .many-input-field button:hover {
     background-color: #0056b3;
-}
+} */
 
 
 
 
-.btn-grad1 {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
+/* .btn-grad1 {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
 .btn-grad1 {
    margin: 10px;
    padding: 15px 45px;
@@ -175,9 +184,9 @@ body {
 
  .btn-grad1:hover {
    background-position: right center; /* change the direction of the change here */
-   color: #fff;
+   /* color: #fff;
    text-decoration: none;
- }
+ } */ 
 
 
 
