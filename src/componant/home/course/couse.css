@@ -18,7 +18,7 @@ gap: 30px;
 .course-1{
     width: 100%;
 
-   
+
     background: #e1e1e13a;
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@ gap: 30px;
 .girl-run{
 
     width: 34%;
-    height: 18vh;
+    height: 15vh;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.064);
 
@@ -59,7 +59,7 @@ gap: 30px;
 
     
     width: 34%;
-    height: 18vh;
+    height: 15vh;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.059);
 
@@ -73,7 +73,7 @@ background-color: #dbdadaad;
 .lotus{
 
     width: 34%;
-    height: 18vh;
+    height: 15vh;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.071);
 
