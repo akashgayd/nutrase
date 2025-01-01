@@ -4,7 +4,8 @@
 
     width: 100%;
     height: 100vh;
-    
+   
+    justify-content: center;
     background: url("../../../aseets/home-diet-food.jpg");
     background-size: cover;
     padding: 20px;
@@ -15,12 +16,9 @@
     width: 100%;
     height: 100vh;
     display: flex;
-    align-self: center;
-    justify-content: center;
-    gap: 30px;
     flex-direction: column;
-   
-    padding: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .st-para{
@@ -28,6 +26,7 @@
     color: rgb(6, 70, 6);
     font-size: 18px;
     font-weight: 600;
+    text-align: center;
 }
 
 .heading-part h1{
@@ -38,6 +37,7 @@
 .heading-part h1 span{
     color: chocolate;
     font-size: 45px;
+    
 }
 
 .last-para-head{
@@ -47,28 +47,32 @@
     font-weight: 100;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(29, 34, 36);
+    text-align: center;
 }
 
-.heading-part button{
-    width: 180px;
-    height: 45px;
-    border-radius: 50px;
-    background-color: rgb(235, 220, 11);
-    border: none;
-    outline: none;
-  
-    font-size: 17px;
-    color: rgba(32, 27, 27, 0.888);
-  
-   font-family: 'Times New Roman', Times, serif;
-    
-}
-.heading-part button:hover{
+.btn-grad {background-image: linear-gradient(to right, #E8CBC0 0%, #636FA4  51%, #E8CBC0  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: rgb(255, 255, 255);
+   font-weight: 600; 
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;           
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: block;
+   border: none;
+ }
 
-    box-shadow: 1px 1px 5px black;
-    transition-duration: 0.5s;
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
 
-}
 
 
 @media (min-width:1024px) {
@@ -80,17 +84,20 @@
     background: url("../../../aseets/home-diet-food.jpg");
     background-size: cover;
     padding: 20px;
+     
    
 }
 .heading-part{
     width: 50%;
     height: 100vh;
-    display: flex;
-    align-self: center;
-    justify-content: center;
-    gap: 30px;
-    flex-direction: column;
-   
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: baseline;
+  
+  
+ 
     padding: 10px;
 }
 .st-para{
@@ -98,15 +105,18 @@
     color: rgb(6, 70, 6);
     font-size: 18px;
     font-weight: 600;
+    
+    
 }
 .heading-part h1{
-    font-size: 70px;
-    text-align: center;
+    font-size: 50px;
+  text-align: start;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .heading-part h1 span{
     color: chocolate;
     font-size: 75px;
+    text-align: start;
 }
 .last-para-head{
 
@@ -115,11 +125,9 @@
     font-weight: 100;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(29, 34, 36);
-}
-.heading-part button{
-    height: 50px;
-    font-size: 18px;
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: start;
 }
 
+    
 }
+

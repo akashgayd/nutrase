@@ -1,5 +1,5 @@
 import './notFound.css'
-import notfound from '../../aseets/notfound.webp';
+import notfound from '../../../aseets/notfound.webp';
 import { useNavigate } from 'react-router-dom';
 
 const Notfound = () => {

@@ -25,9 +25,9 @@ const FitNessAsk =()=>{
 <p className ="last-para-head">It has Servived Not Only Five Centuieos But Also</p>
 
 
-<Link to={'/chatbot'}>
+<Link to={'/Dietplan'}>
 
-<button> Ask To Nutras. </button>
+<button className='btn-grad'> Ask To Nutras</button>
 </Link>
 
 </div>

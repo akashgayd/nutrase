@@ -1,7 +1,7 @@
 
 
 import './Header.css'
-import logo from '../../aseets/logo.webp';
+import logo from '../../../aseets/logo.webp'
 
 
 

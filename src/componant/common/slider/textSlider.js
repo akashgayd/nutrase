@@ -1,12 +1,11 @@
 import Marquee from "react-fast-marquee";
-
-import img1 from '../../aseets/img1.avif';
-import img2 from '../../aseets/img2.png';
-import img3 from '../../aseets/img3.jpg';
-import img4 from '../../aseets/img4.avif';
-import img5 from '../../aseets/img5.jpg';
-import img6 from '../../aseets/img6.jpg';
-import img9 from '../../aseets/img9.avif';
+import img1 from '../../../aseets/img1.avif';
+import img2 from '../../../aseets/img2.png';
+import img3 from '../../../aseets/img3.jpg';
+import img4 from '../../../aseets/img4.avif';
+import img5 from '../../../aseets/img5.jpg';
+import img6 from '../../../aseets/img6.jpg';
+import img9 from '../../../aseets/img9.avif';
 import './textSlider.css';
 const TextSlider = () => {
  
