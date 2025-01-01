@@ -63,8 +63,8 @@ if (
                 { text: ` current Age: ${age}` },
                 { text: `Gender: ${gender}` },
                 { text: `Weight in kg: ${weight}` },
-                { text: `current height: ${height}` },
-                { text: `working profaitional: ${work}` },
+                { text: `current height in Fit: ${height}` },
+                { text: `working professional: ${work}` },
                 { text: `Target Weight: ${targetWeight}` },
                 { text: `target Days: ${days}` },
               ],
@@ -159,7 +159,7 @@ if (
               <div className="fitness">
                 <input
                   type="number"
-                  placeholder="current height"
+                  placeholder="current height in fit.."
                   value={height}
                   onChange={(e) => setHeight(e.target.value)}
                 />
@@ -169,7 +169,7 @@ if (
               <div className="fitness">
                 <input
                   type="text"
-                  placeholder="working profaitional..."
+                  placeholder="working professional..."
                   value={work}
                   onChange={(e) => setWork(e.target.value)}
                 />
