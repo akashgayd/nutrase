@@ -168,7 +168,7 @@ body {
 
 
 
-/* .btn-grad1 {background-image: linear-gradient(to right, #2b5876 0%, #4e4376  51%, #2b5876  100%)}
+.btn-grad1 {background-image: linear-gradient(to right, #2b5876 0%, #4e43768e  51%, #2b5876  100%)}
 .btn-grad1 {
    margin: 10px;
    padding: 15px 45px;
@@ -180,13 +180,16 @@ body {
    box-shadow: 0 0 20px #eee;
    border-radius: 10px;
    display: block;
+   position: fixed;
+   bottom: 0;
+   border: none;
  }
 
  .btn-grad1:hover {
    background-position: right center; /* change the direction of the change here */
-   /* color: #fff;
+    color: #fff;
    text-decoration: none;
- } */ 
+ } 
 
 
 

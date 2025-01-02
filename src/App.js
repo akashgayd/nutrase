@@ -1,7 +1,7 @@
 import Home from './componant/home/home';
 
 import { Routes,Route } from 'react-router-dom';
-import ApiFetch from './componant/home/aiConponant/ai';
+import ApiFetch from './componant/aiConponant/ai';
 import Notfound from './componant/home/notFound/notFound';
 
 
