@@ -1,133 +1,105 @@
-
-
-.main-cont-fitness{
-
+.main-cont-fitness {
     width: 100%;
-    height: 100vh;
-   
     justify-content: center;
     background: url("../../../aseets/home-diet-food.jpg");
     background-size: cover;
     padding: 20px;
-   
-}
-
-.heading-part{
+    margin-bottom: 30px;
+  }
+  
+  .heading-part {
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.st-para{
-
+  }
+  
+  .st-para {
     color: rgb(6, 70, 6);
     font-size: 18px;
     font-weight: 600;
     text-align: center;
-}
-
-.heading-part h1{
+  }
+  
+  .heading-part h1 {
     font-size: 40px;
     text-align: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.heading-part h1 span{
+    
+  }
+  .heading-part h1 span {
     color: chocolate;
     font-size: 45px;
-    
-}
-
-.last-para-head{
-
-   
+  }
+  
+  .last-para-head {
     font-size: 24px;
     font-weight: 100;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
     color: rgb(29, 34, 36);
     text-align: center;
-}
-
-.btn-grad {background-image: linear-gradient(to right, #E8CBC0 0%, #636FA4  51%, #E8CBC0  100%)}
-.btn-grad {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: rgb(255, 255, 255);
-   font-weight: 600; 
-   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;           
-   box-shadow: 0 0 20px #eee;
-   border-radius: 10px;
-   display: block;
-   border: none;
- }
-
- .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #fff;
-   text-decoration: none;
- }
-
-
-
-@media (min-width:1024px) {
-.main-cont-fitness{
-
-    width: 100%;
-    height: 100vh;
-    
-    background: url("../../../aseets/home-diet-food.jpg");
-    background-size: cover;
-    padding: 20px;
-     
-   
-}
-.heading-part{
-    width: 50%;
-    height: 100vh;
-
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: baseline;
+  }
   
-  
- 
-    padding: 10px;
-}
-.st-para{
-
-    color: rgb(6, 70, 6);
-    font-size: 18px;
+  .btn-grad {
+    background-image: linear-gradient(
+      to right,
+      #aa9f9b 0%,
+      #4c5b9f 51%,
+      #e8cbc0 100%
+    );
+  }
+  .btn-grad {
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(255, 255, 255);
     font-weight: 600;
-    
-    
-}
-.heading-part h1{
-    font-size: 50px;
-  text-align: start;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-.heading-part h1 span{
-    color: chocolate;
-    font-size: 75px;
-    text-align: start;
-}
-.last-para-head{
-
-   
-    font-size: 24px;
-    font-weight: 100;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: rgb(29, 34, 36);
-    text-align: start;
-}
-
-    
-}
-
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+    border: none;
+  }
+  
+  .btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  @media (min-width: 1024px) {
+    .heading-part {
+      width: 50%;
+      height: 100vh;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      left: 6%;
+    }
+    .st-para {
+      color: rgb(6, 70, 6);
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .heading-part h1 {
+      font-size: 50px;
+      text-align: start;
+      
+    }
+    .heading-part h1 span {
+      color: chocolate;
+      font-size: 50px;
+      text-align: start;
+    }
+    .last-para-head {
+      font-size: 24px;
+      font-weight: 100;
+      color: rgb(29, 34, 36);
+      text-align: start;
+      font-weight: 300;
+    }
+  }

@@ -1,230 +1,139 @@
-import './about.css';
+import React from "react";
+import "./about-main.css";
 import Marquee from "react-fast-marquee";
-import john from '../../../aseets/john.png'
-const About = ()=>{
-
-    return(
-
-<div className='costo-heading'>
-
-<p>Happy Customer</p>
-<h1>What Client Say About Us</h1>
-
-<div className='para-abaout'>
-
-
-<Marquee play={true}>
-
-
-<div className='main-marque'>
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@akash</p>
-   <i>akash</i>
-   </div>
-   <h5>I've never seen anything like this before. It's amazing. I love it.</h5>
-
-</div>
-
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@akshay</p>
-   <i>akshay</i>
-   </div>
-   <h5>I'm at a loss for words. This is amazing. I love it</h5>
-
-</div>
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@aman</p>
-   <i>aman</i>
-   </div>
-   <h5>I don't know what to say. I'm speechless. This is amazing.</h5>
-
-</div>
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@sohan</p>
-   <i>sohan</i>
-   </div>
-   <h5>I've never seen anything like this before. It's amazing. I love it.</h5>
-
-</div>
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@mannu </p>
-   <i>mannu</i>
-   </div>
-  
-   <h5>I'm at a loss for words. This is amazing. I love it.</h5>
-
-</div>
-
-
-
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@shan</p>
-   <i>shan</i>
-   </div>
-   <h5>I don't know what to say. I'm speechless. This is amazing.</h5>
-
-</div>
-
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@jatin</p>
-   <i>jatin</i>
-   </div>
-   <h5>I don't know what to say. I'm speechless. This is amazing.</h5>
-
-</div>
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@ramika</p>
-   <i>ramika</i>
-   </div>
-   <h5>I've never seen anything like this before. It's amazing. I love it.</h5>
-
-</div>
-
-
-</div>
-
-</Marquee>
-
-
-
-<Marquee play={true} direction={'right'}>
-
-
-<div className='main-marque'>
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@amek</p>
-   <i>amek</i>
-   </div>
-   <h5>I've never seen anything like this before. It's amazing. I love it.</h5>
-
-</div>
-
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@akshay</p>
-   <i>akshay</i>
-   </div>
-   <h5>I'm at a loss for words. This is amazing. I love it</h5>
-
-</div>
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@anvi</p>
-   <i>anvi</i>
-   </div>
-   <h5>I don't know what to say. I'm speechless. This is amazing.</h5>
-
-</div>
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@nehal</p>
-   <i>nehal</i>
-   </div>
-   <h5>I've never seen anything like this before. It's amazing. I love it.</h5>
-
-</div>
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@mayank</p>
-   <i>mayank</i>
-   </div>
-  
-   <h5>I'm at a loss for words. This is amazing. I love it.</h5>
-
-</div>
-
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@rahul</p>
-   <i>rahul</i>
-   </div>
-   <h5>I don't know what to say. I'm speechless. This is amazing.</h5>
-
-</div>
-
-
-
-
-
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@shahrukh</p>
-   <i>shahrukh</i>
-   </div>
-   <h5>I don't know what to say. I'm speechless. This is amazing.</h5>
-
-</div>
-
-<div className='marquee-inside'>
-
-    <div>
-   <img src={john}/>
-   <p>@sohan</p>
-   <i>sohan</i>
-   </div>
-   <h5>I've never seen anything like this before. It's amazing. I love it.</h5>
-
-</div>
-
-
-</div>
-
-</Marquee>
-
-</div>
-
-
-</div>
-
-    )
-}
-export default About;
+import { FaUserCircle } from "react-icons/fa";
+
+const AboutMain = () => {
+  return (
+    <div className="about-main-container">
+      <div className="main-about-cont-part">
+        <div className="main-about-title">Happy Customer</div>
+        <br />
+        <div className="main-about-heading">What Client Say About Us</div>
+        <br />
+        <div className="main-about-content-part">
+          <Marquee play={true} speed={20} pauseOnHover={true}>
+            <div className="main-about-marquee-part">
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">John Doe</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                  I've never seen anything like this before. It's amazing. I
+                  love it.
+                </p>
+              </div>
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Cena Doe</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Blue Bro</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Robin Hood</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+            </div>
+          </Marquee>
+          <br />
+          <Marquee
+            play={true}
+            direction={"right"}
+            speed={20}
+            pauseOnHover={true}
+          >
+            <div className="main-about-marquee-part">
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">John Doe</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                  I've never seen anything like this before. It's amazing. I
+                  love it.
+                </p>
+              </div>
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Cena Doe</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Blue Bro</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Robin Hood</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+            </div>
+          </Marquee>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AboutMain;

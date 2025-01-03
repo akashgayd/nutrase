@@ -3,8 +3,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-
-    background: linear-gradient(to right, #304352, #d7d2cc);
+    background: linear-gradient(to right, rgb(173, 205, 193), #ffffff);
     align-items: center;
    
 }
@@ -67,7 +66,7 @@
 .login-btn{
     margin-top: 10px;
     width: 100%;
-    background: linear-gradient(to right, #283048, #859398);
+    background: linear-gradient(to right,  rgb(231, 234, 233), #8c8b8b);
     font-size: 16px;
     font-weight: 600;
     color: white;
@@ -82,7 +81,7 @@
 }
 
 .login-btn:hover{
-    background: linear-gradient(to left, #283048, #859398);
+    background: linear-gradient(to left,  rgb(0, 0, 0), #8c8b8b);
 }
 
 .signup-option{

@@ -2,17 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-family: "Fira Sans", serif !important;
 }
-.scroll-container {
+.html,body {
     overflow-y: auto;
-    height: 200px;
+   
     scrollbar-width: thin; /* Firefox-specific */
     scrollbar-color: #4caf50 #e0e0e0; /* Thumb and track colors for Firefox */
   }
   
   /* Optional: Adding padding for a better look */
-  .scroll-container::-moz-scrollbar {
+  .html,body::-moz-scrollbar {
     scrollbar-color: #8c2929 404; /* similar-styles `scroll` */
   }
   

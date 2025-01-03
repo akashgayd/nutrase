@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./login.css";
-import {auth} from 'firebase'
+import { auth } from "../../firebase";
 import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
@@ -11,7 +11,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -50,7 +50,7 @@ const Login = () => {
             <input
               type="email"
               className="login-input"
-              placeholder="Enter your email"
+              placeholder="for example: udanous@gmail.com"
               value={email}
               onChange={handleEmailChange}
             />
@@ -59,7 +59,7 @@ const Login = () => {
             <input
               type="password"
               className="login-input"
-              placeholder="Enter your password"
+              placeholder="for example: udanous"
               value={password}
               onChange={handlePasswordChange}
             />
@@ -73,7 +73,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => {
-                    navigate("/register");
+                    navigate("/signup");
                 }}
                 className="login-btn"
               >
