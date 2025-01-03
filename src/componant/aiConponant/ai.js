@@ -6,8 +6,9 @@ import lode from '../../aseets/loder2.gif';
 import Header from '../common/header/Header';
 import man from '../../aseets/man1.png';
 import girl from '../../aseets/girl1.png';
-import { BsToggleOff } from "react-icons/bs";
-import { BsToggleOn } from "react-icons/bs";
+import logo from '../../aseets/logo2.png';
+import { MdOutlineFilterList } from "react-icons/md";
+import { MdOutlineFilterListOff } from "react-icons/md";
 
 const ApiFetch = () => {
   const [name, setName] = useState('');
@@ -22,22 +23,64 @@ const ApiFetch = () => {
   const [loading, setLoading] = useState(false);
   const [inputsVisible, setInputsVisible] = useState(true);
   const [currentSection, setCurrentSection] = useState(0);
-  const [questionsLog, setQuestionsLog] = useState([]); // Questions log state
-  const [showQuestions, setShowQuestions] = useState(false); // State to toggle the visibility of questions
+  const [questionsLog, setQuestionsLog] = useState([]);
+  const [showQuestions, setShowQuestions] = useState(false);
 
+
+
+
+
+  // save the quition in days vise just like today yesterday and last 7 days only
   useEffect(() => {
-    // Load saved questions from localStorage on component mount this save only the local storege and also save only last 7 days not save permantly
     const savedLogs = JSON.parse(localStorage.getItem('questionsLog')) || [];
     const filteredLogs = savedLogs.filter(log => {
       const savedDate = new Date(log.timestamp);
       const currentDate = new Date();
-      const daysDifference = (currentDate - savedDate) / (1000 * 3600 * 24); // Difference in days
-      return daysDifference <= 7; // Only keep logs from the past 7 days   7 days save the data
+      const daysDifference = (currentDate - savedDate) / (1000 * 3600 * 24);
+      return daysDifference <= 7;
     });
     setQuestionsLog(filteredLogs);
   }, []);
 
-// the use this funtion user click the button and go to the next page
+
+  // this function is use to add date which  quition is ask today or yesterday somthing
+  const groupQuestionsByDate = (logs) => {
+    const today = new Date();
+    const grouped = {
+      today: [],
+      yesterday: [],
+      last7Days: []
+    };
+
+    // using forEach to itrirate the array 
+    logs.forEach(log => {
+      const logDate = new Date(log.timestamp);
+      const logDay = logDate.getDate();
+      const todayDay = today.getDate();
+
+
+      // usnig the condition check the what is ask the quition today or tommarow 
+      if (
+        logDate.getFullYear() === today.getFullYear() &&
+        logDate.getMonth() === today.getMonth()
+      ) {
+        if (logDay === todayDay) {
+          grouped.today.push(log);
+        } else if (logDay === todayDay - 1) {
+          grouped.yesterday.push(log);
+        } else {
+          grouped.last7Days.push(log);
+        }
+      } else {
+        grouped.last7Days.push(log);
+      }
+    });
+
+    return grouped;
+  };
+
+
+  // that can be use nextfunction the click the buttion user show next input
   const handleNext = () => {
     if (currentSection === 0 && (!name || !gender || !age)) {
       alert('Please fill all fields in this section.');
@@ -47,17 +90,17 @@ const ApiFetch = () => {
       alert('Please fill all fields in this section.');
       return;
     }
-    setCurrentSection((prev) => prev + 1);   // the user get next page
+    setCurrentSection((prev) => prev + 1);
   };
 
 
-  //  that is the use to previous quition user can add wrong input that time use this click this and render previous
+
+
+  // and this is user show the previous input
   const handlePrevious = () => {
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
-
-  // user not fill all filed that time get alrt
   const handleSubmit = async (e) => {
     if (!name || !gender || !age || !weight || !height || !work || !targetWeight || !days) {
       alert('Please fill all the boxes.');
@@ -78,10 +121,11 @@ const ApiFetch = () => {
       work,
       targetWeight,
       days,
-      timestamp: new Date().toISOString(), // Save timestamp when the question is logged  
+      timestamp: new Date().toISOString(),
     };
 
-    // Save the log to localStorage the quition will be save
+
+    // save the quition in localstorage
     const savedLogs = JSON.parse(localStorage.getItem('questionsLog')) || [];
     savedLogs.push(log);
     localStorage.setItem('questionsLog', JSON.stringify(savedLogs));
@@ -119,7 +163,7 @@ const ApiFetch = () => {
       setLoading(false);
     }
   };
-
+  // input field will be enter and click the button input filed will be empty
   const handleReset = () => {
     setGender('');
     setAge('');
@@ -134,9 +178,13 @@ const ApiFetch = () => {
     setCurrentSection(0);
   };
 
+
+  // that funtion is create the toggle button user  click this button that time show the history of quition
   const handleShowQuestions = () => {
-    setShowQuestions(!showQuestions); // Toggle the visibility of saved questions
+    setShowQuestions(!showQuestions);
   };
+
+  const groupedQuestions = groupQuestionsByDate(questionsLog);
 
   return (
     <>
@@ -271,35 +319,37 @@ const ApiFetch = () => {
         )}
       </div>
 
-      {/* Button to show saved questions */}
       <div className='save-quition'>
-      <button onClick={handleShowQuestions}>
-        {showQuestions ? <BsToggleOn className='icons'> </BsToggleOn> : <BsToggleOff className='icons'></BsToggleOff>}
-      </button>
-      
+        <button onClick={handleShowQuestions}>
+          {showQuestions ? <MdOutlineFilterList className='icons'> </MdOutlineFilterList> : <MdOutlineFilterListOff className='icons'></MdOutlineFilterListOff>}
+        </button>
 
-      {showQuestions && (
-        <div className='save-function'>
-          <h3>Saved Questions Log</h3>
-          {questionsLog.length > 0 ? (
-            <ul>
-              {questionsLog.map((log, index) => (
-                <li key={index}>
-                  Name: {log.name}, Gender: {log.gender}, Age: {log.age}, Weight: {log.weight},
-                  Height: {log.height}, Work: {log.work}, Target Weight: {log.targetWeight},
-                  Days: {log.days}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No saved questions yet.</p>
-          )}
-        
-        </div>
-      )}
+        {showQuestions && (
+          <div className='save-function'>
+            <img src={logo} />
+            {Object.keys(groupedQuestions).map((key) => (
+              <div key={key}>
+                <p>{key === 'today' ? 'Today' : key === 'yesterday' ? 'Yesterday' : 'Last 7 Days'}</p>
+                {groupedQuestions[key].length > 0 ? (
+                  <ul>
+                    {groupedQuestions[key].map((log, index) => (
+                      <li key={index} className='history-materiul'>
+                        Name: {log.name}, Gender: {log.gender}, Age: {log.age}, Weight: {log.weight},
+                        Height: {log.height}, Work: {log.work}, Target Weight: {log.targetWeight},
+                        Days: {log.days}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p>No questions available in this category.</p>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );
-}
+};
 
 export default ApiFetch;

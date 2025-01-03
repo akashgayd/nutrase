@@ -8,6 +8,8 @@
     justify-content: center;
     align-items: center;
     padding: 20px;
+    position: fixed;
+    
 }
 
 .api-data-fetch {
@@ -22,8 +24,8 @@
 }
 
 .user-response {
-    width: 100%;
-    height: 60vh;
+    
+   
     overflow-y: auto;
     border-radius: 10px;
     padding: 20px;
@@ -45,7 +47,7 @@
 
 .result-display {
     width: 50%;
-    max-height: 70%;
+    /* max-height: 70%; */
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -56,7 +58,7 @@
    align-items: center;
     scrollbar-width: none;
    text-align: justify;
-   background: white;
+   background: rgb(252, 249, 249);
    
 }
 
@@ -308,15 +310,22 @@ height: auto;
 .save-quition{
     position: absolute;
     top: 16%;
-    width: 40%;
+    width: 5%;
+  
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+   background-color: #fff;
+    border-radius: 7px;
+  
     
 }
 .save-quition button{
-    width: 130px;
-    height: 40px;
+    width: 100px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
  border: none;
  background-color: transparent;
 }
@@ -324,11 +333,36 @@ height: auto;
 
     width: 100%;
     height: 100%;
+    
 }
 .save-function{
-    width: 40%;
+    width: 17vw;
+    max-height: 79vh;
+    display: flex;
+    flex-direction: column;
     height:auto;
-    text-align: justify;
+    gap: 15px;
+    overflow: scroll;
+    padding: 10px;
+    border-radius: 10px;
+    scrollbar-width: none;
+    background-color: #ffffffe7;
+    /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.324); */
+  
+}
+.save-function p{
+    font-weight: 600;
+}
+.save-function img{
+    width: 90px;
+    height: 20px;
+    
+}
+.history-materiul{
+
+    margin-bottom: 15px;
+    font-size: 14px;
+
 }
 /* Media Queries */
 @media (max-width: 768px) {
@@ -458,7 +492,25 @@ height: auto;
     height: 50px;
 } 
    .save-quition{
-    display: none;
+    width: 20%;
+    z-index: 1;
+   
+    position: absolute;
+    top: 11%;
+    transition-duration: 0.7s;
+   
+   
+   }
+   .save-function{
+
+    width: 80vw;
+    border-radius: 15px;
+    background-color: #fff;
+   
+
+   }
+   .save-function h5{
+    font-size: 19px;
    }
       
     
