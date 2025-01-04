@@ -444,7 +444,7 @@ height: 38px;
 @media (max-width: 480px) {
     .result-display {
         width: 100%;
-        max-height: 80vh;
+        max-height: 60vh;
         padding: 10px;
     }
 
