@@ -21,8 +21,9 @@ const FoodFitness = () => {
       <div className="main-food-fitness-cont">
         <div className="heading-food-fiitness">
           <h1>Fitness & Nutrition</h1>
+           <TextSlider />
           <br/>
-          <TextSlider />
+         
         </div>
         <br/>
         <div className="about-food-fitness">

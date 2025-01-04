@@ -2,13 +2,14 @@ import axios from 'axios';
 import './ai.css';
 import { useState, useEffect } from 'react';
 import Markdown from 'react-markdown';
-import lode from '../../aseets/loder2.gif';
+import loadingImg from '../../aseets/loder2.gif';
 import Header from '../common/header/Header';
 import man from '../../aseets/man1.png';
 import girl from '../../aseets/girl1.png';
 import logo from '../../aseets/logo2.png';
 import { MdOutlineFilterList } from "react-icons/md";
 import { MdOutlineFilterListOff } from "react-icons/md";
+import refress from '../../aseets/refress button.png';
 
 const ApiFetch = () => {
   const [name, setName] = useState('');
@@ -301,7 +302,7 @@ const ApiFetch = () => {
           <div className="main-result">
             <div className="result-display">
               {loading ? (
-                <img src={lode} alt="Loading..." />
+                <img src={loadingImg} alt="Loading..." />
               ) : (
                 <ul className="result-list">
                   {result.map((item, index) => (
@@ -313,7 +314,7 @@ const ApiFetch = () => {
               )}
             </div>
             <button className="btn-grad1" onClick={handleReset}>
-              Reset
+             < img src={refress}/>
             </button>
           </div>
         )}
