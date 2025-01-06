@@ -19,8 +19,6 @@ const TextSlider = () => {
       <img src={fit4} className="img-logo-width ht-wt"/>
       <img src={fit2} className="img-logo-width"/>
       <div className="brands-logo">Fitness Brands</div>
-      
-      
     </Marquee>
   );
 };
