@@ -1,94 +1,60 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-
-  width: 100%;
-  height: 100%;
-
-}
 
 .main-header-cont {
-
-
   width: 100%;
-  height: 15%;
 }
 
 .header-cont {
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
-
-
 }
 
 .list-items {
-
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 }
 
-
 .list-items li {
-
   color: black;
 }
 
 a:hover {
-
   text-decoration: none;
 }
 
 .list a {
-
   color: black;
-
 }
 
 .LogoutBtn button {
-
   padding: 10px 40px;
   background-color: rgb(9, 82, 33);
   border: none;
   color: white;
   font-size: 15px;
   border-radius: 10px;
-
 }
 
-
 .logo-img img {
-
   width: 120px;
 }
 
 button:focus {
-
   outline: none;
 }
 
 .main-header-cont {
-
   display: none;
 }
 
 .mob-view {
-
   display: block;
-
 }
 
 .logoutBtn button {
-
   background-color: rgb(49, 120, 93);
   color: white;
   border-radius: 30px;
@@ -96,29 +62,15 @@ button:focus {
   width: 80px;
   border: none;
   font-weight: 500;
-
-
 }
 
-
-
-
-
-
-@media(min-width: 1024px) {
-
-
-
+@media (min-width: 1024px) {
   .main-header-cont {
-
-
     width: 100%;
     height: 12%;
     /* background-color: aqua; */
     padding: 16px;
-    /* box-shadow: 0px 7px 5px -6px rgba(0, 0, 0, 0.75); */
 
-    font-family: "Bitter", serif;
     font-optical-sizing: auto;
     font-weight: weight;
     font-style: normal;
@@ -129,12 +81,9 @@ button:focus {
     top: 0;
     background-color: #fff;
     z-index: 2;
-
   }
 
   .header-cont {
-
-
     width: 100%;
     height: 12%;
     display: flex;
@@ -147,7 +96,6 @@ button:focus {
   }
 
   .list-items {
-
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -155,11 +103,7 @@ button:focus {
     justify-content: space-around;
   }
 
-
-
-
   .list-items li {
-
     color: black;
     padding: 20px;
     font-size: 18px;
@@ -167,12 +111,9 @@ button:focus {
     align-self: center;
     justify-content: center;
     margin-top: 22px;
-
   }
 
-
   .LogoutBtn button {
-
     width: 130px;
     height: 45px;
     background-color: rgb(51, 142, 107);
@@ -184,63 +125,49 @@ button:focus {
 
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.301);
     cursor: pointer;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
-
   }
 
   button:focus {
-
     outline: none;
   }
 
-
   .main-header-cont {
-
     display: block;
   }
 
-
   ul {
-
     list-style: none;
     margin-top: 6px;
   }
 
   .list a {
-
     font-size: 18px;
     letter-spacing: 3px;
     cursor: pointer;
     text-transform: capitalize;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
 
   .logo-img img {
-
     width: 150px;
-
-
   }
 
   .LogoutBtn button:hover {
-
     background-color: rgba(163, 122, 8, 0.644);
   }
 
-
   .mob-view {
-
     display: none;
   }
 
-.logo-img{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-}
-
+  .logo-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }

@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../../../aseets/logo.webp";
+import logo from '../../../aseets/logo.webp'
 import React, { useEffect } from "react";
 import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
@@ -29,14 +29,18 @@ const Header = () => {
       });
   };
 
-  function blog(){
-    navigate("/blog")
+  function blog() {
+    navigate("/blog");
   }
-  function contact(){
-    navigate("/contact")
+  function contact() {
+    navigate("/contact");
   }
-  function home(){
-    navigate("/home")
+  function home() {
+    navigate("/home");
+  }
+
+  function about() {
+    navigate("/about");
   }
 
   return (
@@ -45,34 +49,28 @@ const Header = () => {
         <div className="header-cont">
           <div className="logo-img">
             <img src={logo} onClick={home}></img>
-          
 
-          <div className="nav-content">
-            <nav className="navbar-link">
-              <ul className="list-items">
-                
+            <div className="nav-content">
+              <nav className="navbar-link">
+                <ul className="list-items">
+                  <li className="list" onClick={about}>
+                    <a className="list-link">about</a>
+                  </li>
 
-               
+                  <li className="list" onClick={blog}>
+                    <a className="list-link">blog</a>
+                  </li>
 
-                {/* <li className="list" onClick={}>
-                  <a className="list-link">about</a>
-                </li> */}
-
-                <li className="list" onClick={blog}>
-                  <a className="list-link">blog</a>
-                </li>
-
-                <li className="list" onClick={contact}>
-                  <a className="list-link">contact-us</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+                  <li className="list" onClick={contact}>
+                    <a className="list-link">contact-us</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
           <div className="LogoutBtn">
             <button onClick={handleSignOut}>Logout</button>
           </div>
-
         </div>
       </div>
 
@@ -86,9 +84,7 @@ const Header = () => {
             </div>
           </a>
 
-          <form className="form-inline my-2 my-lg-0">
-            
-          </form>
+          <form className="form-inline my-2 my-lg-0"></form>
 
           <button
             className="navbar-toggler"
@@ -109,7 +105,7 @@ const Header = () => {
                   Home <span className="sr-only">(current)</span>
                 </a>
               </li>
-            
+
               <li className="nav-item">
                 <a className="nav-link" href="#">
                   blog
@@ -121,10 +117,14 @@ const Header = () => {
                 </a>
               </li>
               <div className="logoutBtn">
-              <button className="LogBtn " type="submit" onClick={handleSignOut}>
-                Logout
-              </button>
-            </div>
+                <button
+                  className="LogBtn "
+                  type="submit"
+                  onClick={handleSignOut}
+                >
+                  Logout
+                </button>
+              </div>
             </ul>
           </div>
         </nav>

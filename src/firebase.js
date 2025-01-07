@@ -1,17 +1,26 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { getDatabase, ref, push, onValue } from "firebase/database";
 
+// Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAkprUBzwJ1_3noHQiT9gU5UTvEtLx9qks",
-  authDomain: "nutras-3f7cc.firebaseapp.com",
-  databaseURL: "https://nutras-3f7cc-default-rtdb.firebaseio.com",
-  projectId: "nutras-3f7cc",
-  storageBucket: "nutras-3f7cc.firebasestorage.app",
-  messagingSenderId: "803345831146",
-  appId: "1:803345831146:web:1160397730fb75a7bbb393"
+  apiKey: "AIzaSyBPdUbUFzFO8XtOh9FJt0DmEpgZpFhyQcc",
+  authDomain: "dietplan-1b8df.firebaseapp.com",
+  databaseURL: "https://dietplan-1b8df-default-rtdb.firebaseio.com",
+  projectId: "dietplan-1b8df",
+  storageBucket: "dietplan-1b8df.firebasestorage.app",
+  messagingSenderId: "172149690520",
+  appId: "1:172149690520:web:966949b27cf505f0b580ed"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+ const auth = getAuth(app);
+
+// Initialize Realtime Database
+const db = getDatabase(app);
+
+// Export database and related functions
+export { db,auth };
