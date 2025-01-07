@@ -6,10 +6,10 @@ import loadingImg from '../../aseets/loder2.gif';
 
 import man from "../../aseets/man1.png";
 import girl from "../../aseets/girl1.png";
-import logo from "../../aseets/logo2.png";
+// import logo from "../../aseets/logo2.png";
 import { MdOutlineFilterList } from "react-icons/md";
 import { MdOutlineFilterListOff } from "react-icons/md";
-import refress from "../../aseets/refress button.png";
+import { RxReload } from "react-icons/rx";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 import { db, auth } from "../../firebase";
 import { Link } from "react-router-dom";
@@ -200,7 +200,7 @@ const ApiFetch = () => {
         .filter((line) => line.trim() !== "");
       setResult(bulletPoints);
 
-      // Save to Firebase
+      // Save to  the firebase user history
       const userId = auth.currentUser ?.uid || "guest"; // Adjust for authenticated users
       const historyRef = ref(db, `users/${userId}/history`);
       const newEntryRef = push(historyRef);
@@ -228,7 +228,7 @@ const ApiFetch = () => {
     setResult([]);
     setInputsVisible(true);
     setCurrentSection(0);
-    setSelectedHistoryOutput(null); // Clear selected history output
+    setSelectedHistoryOutput(null); // Clear selected  input
   };
 
   const handleShowQuestions = () => {
@@ -506,7 +506,7 @@ const ApiFetch = () => {
               </ul>
             )}
             <button className="btn-grad1" onClick={handleReset}>
-              <img src ={refress} />
+              <RxReload className="icon-reloed"></RxReload>
             </button>
           </div>
         )}
@@ -523,7 +523,7 @@ const ApiFetch = () => {
 
         {showQuestions && (
           <div className="save-function">
-            <img src={logo} />
+            <p>History</p>
             {questionsLog.map((log, index) => (
               <Link  className="history-entry"
 

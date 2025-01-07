@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from '../../../aseets/logo.webp';
+import logo from '../../../aseets/logo3.jpg'
 import React, { useEffect } from "react";
 import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
@@ -46,7 +46,7 @@ const Header = () => {
   return (
     <>
       <div className="main-header-cont">
-        <nav className="navbar navbar-expand-lg navbar-light bg-white">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
           <div className="container-fluid">
             <a className="navbar-brand" href="#">
               <img

@@ -1,9 +1,9 @@
 import React from "react";
-import "./about-main.css";
+import "./feedback.css";
 import Marquee from "react-fast-marquee";
 import { FaUserCircle } from "react-icons/fa";
 
-const AboutMain = () => {
+const Feedback = () => {
   return (
     <div className="about-main-container">
       <div className="main-about-cont-part">
@@ -11,7 +11,7 @@ const AboutMain = () => {
         <br />
         <div className="main-about-heading">What Client Say About Us</div>
         <br />
-        {/* <div className="main-about-content-part">
+        <div className="main-about-content-part ">
           <Marquee play={true} speed={20} pauseOnHover={true}>
             <div className="main-about-marquee-part">
               <div className="main-about-marquee-block">
@@ -130,10 +130,10 @@ const AboutMain = () => {
               </div>
             </div>
           </Marquee>
-        </div> */}
+        </div>
       </div>
     </div>
   );
 };
 
-export default AboutMain;
+export default Feedback;
