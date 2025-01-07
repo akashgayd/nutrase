@@ -50,7 +50,7 @@ const Login = () => {
             <input
               type="email"
               className="login-input"
-              placeholder="for example: udanous@gmail.com"
+              placeholder="Enter Email"
               value={email}
               onChange={handleEmailChange}
             />
@@ -59,7 +59,7 @@ const Login = () => {
             <input
               type="password"
               className="login-input"
-              placeholder="for example: udanous"
+              placeholder="Enter password"
               value={password}
               onChange={handlePasswordChange}
             />
