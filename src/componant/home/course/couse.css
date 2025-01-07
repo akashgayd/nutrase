@@ -1,205 +1,121 @@
-.main-course-cont{
-   
+.Main-course-Cont{
     width: 100%;
     display: flex;
-   
-    justify-content: space-evenly;
-    align-items: center;
     justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main-course-card-cont{
+    width: 88%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.main-course-cards{
+    width: 400px;
+    padding: 20px;
+    display: flex;
     flex-direction: column;
-    
-    padding: 15px;
-gap: 30px;
+    justify-content: center;
+    align-items: center;
+    background-color: #e1e1e13a;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.course-card-images{
+    width: 100px;
+    height: 100px;
     margin-top: 20px;
 }
 
-
-
-.course-1{
-    width: 100%;
-
-
-    background: #e1e1e13a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 15px;
-}
-
-
-.girl-run{
-
-    width: 34%;
-    height: 15vh;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.064);
-
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 10px;
- background-color: #dbdadaad;
-
-}
-.girl-run img{
-
-    width: 80%;
-    height: 50%;
-
-}
-
-.lotus img{
-    width: 80%;
-    height: 60%;
-}
-.man-using-lap{
-
-
-    
-    width: 34%;
-    height: 15vh;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.059);
-
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 10px;
-background-color: #dbdadaad;
-
-}
-.lotus{
-
-    width: 34%;
-    height: 15vh;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.071);
-
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 10px;
- background-color: #dbdadaad;
-}
-
-.man-using-lap img{
-    width: 90%;
-    height: 60%;
-}
-.course-dis{
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
+.course-card-heading{
+    font-size: 28px;
+    font-weight: 600;
     text-align: center;
-    gap: 20px;
-    font-family: "Bona Nova SC", serif;
+    margin-bottom: 20px;
 }
-.course-1:hover{
 
-    transition-duration: 0.8s;
-    box-shadow: 2px 1px 6px rgba(0, 0, 0, 0.205);
-    border-radius: 10px;
-}
-@media (min-width:1024px) {
-.main-course-cont{
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    justify-content: center;
-    
-    padding: 15px;
-gap: 30px;
-    margin-top: 20px;
-}
-.course-1{
-    width: 28%;
-    height: 100%;
-   
-    background: #e1e1e13a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 15px;
-}
-.girl-run{
-
-    width: 34%;
-    height: 20vh;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.064);
-
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 10px;
- background-color: #dbdadaad;
-
-}
-.girl-run img{
-
+.course-card-para{
+    font-size: 16px;
     width: 80%;
-    height: 60%;
-
-}
-.lotus{
-
-    width: 34%;
-    height: 20vh;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.071);
-
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 10px;
- background-color: #dbdadaad;
-}
-.lotus img{
-    width: 80%;
-    height: 60%;
-}
-.man-using-lap{
-
-
-    
-    width: 35%;
-    height: 20vh;
-    border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, 0.059);
-
- display: flex;
- align-items: center;
- justify-content: center;
- padding: 10px;
-background-color: #dbdadaad;
-
-}
-
-.man-using-lap img{
-    width: 90%;
-    height: 60%;
-}
-.course-dis{
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    gap: 20px;
-    font-family: "Bona Nova SC", serif;
 }
-.course-1:hover{
 
-    transition-duration: 0.8s;
-    box-shadow: 2px 1px 6px rgba(0, 0, 0, 0.205);
-    border-radius: 10px;
+.course-card-btn{
+    border: none;
+    font-size: 18px;
+    background-color: transparent;
 }
+
+.course-card-btn:hover{
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media (max-width: 1025px) {
+    .main-course-cards{
+        width: 280px;
+    }
+}
+
+@media (min-width: 1026px) {
+    .main-course-cards{
+        width: 30%;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-course-card-cont{
+        width: 100%;
+    }
+    .main-course-cards{
+        width: 250px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-course-cards{
+        width: 100%;
+    }
+}
+
+@media (max-width: 465px) {
+    .main-course-card-cont{
+        width: 90%;
+    }
+
+    .course-card-heading{
+        font-size: 24px;
+    }
+
+    .course-card-para{
+        width: 90%;
+    }
+}
+
+@media (min-width: 2000px){
+    .main-course-cards{
+        width: 550px;
+        height: 550px;
+    }
+
+    .course-card-heading{
+        font-size: 38px;
+    }
+
+    .course-card-para{
+        font-size: 26px;
+    }
+
+    .course-card-images{
+        width: 200px;
+        height: 200px;
+    }
 }
