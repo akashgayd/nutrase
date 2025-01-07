@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* padding: 20px; */
+    padding: 10px;
     position: fixed;
   }
   
@@ -354,7 +354,21 @@
   .red-outline {
     border: 2px solid red;
   }
-  
+  .user-all-question{
+    color: black;
+    text-decoration: none;
+    font-size: 12px;
+  }
+  .history-entry{
+    font-size: 12px;
+    color: black;
+    text-decoration: none;
+  }
+  .history-entry:hover{
+
+    text-decoration: none;
+    color: black;
+  }
   /* Media Queries */
   @media (max-width: 768px) {
     .main-api-div {

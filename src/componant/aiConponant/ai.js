@@ -525,10 +525,11 @@ const ApiFetch = () => {
           <div className="save-function">
             <img src={logo} />
             {questionsLog.map((log, index) => (
-              <Link
-                style={{ color: 'black', fontSize: '13px' }}
+              <Link  className="history-entry"
+
+                // style={{ color: 'black', fontSize: '13px'  }}
                 key={index}
-                className="history-entry"
+                
                 onClick={() => handleHistoryClick(log)} // Fetch output on click
               >
                 <p>
