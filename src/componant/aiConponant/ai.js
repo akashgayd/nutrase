@@ -35,10 +35,13 @@ const ApiFetch = () => {
   const [shakeFields, setShakeFields] = useState([]);
   const [selectedHistoryOutput, setSelectedHistoryOutput] = useState(null);
 
-  useEffect(() => {
-    const userId = auth.currentUser ?.uid || "guest"; // Adjust for authenticated users
-    const historyRef = ref(db, `users/${userId}/history`);
 
+
+  // the user question and answer will be store in firebase db
+  useEffect(() => {
+    const userId = auth.currentUser ?.uid || "guest"; 
+    const historyRef = ref(db, `users/${userId}/history`);
+ 
     onValue(historyRef, (snapshot) => {
       const data = snapshot.val();
       const logs = data
@@ -50,6 +53,9 @@ const ApiFetch = () => {
       setQuestionsLog(logs);
     });
   }, []);
+
+
+  // QUESTION CAN STORE IN ATLEST 7 DAYS
 
   const groupQuestionsByDate = (logs) => {
     const today = new Date();
@@ -83,6 +89,7 @@ const ApiFetch = () => {
     return grouped;
   };
 
+  // THIS FUNCTION CAN  BE SHOW THE ERROR USER CAN NOT ADD VALUE IN INPUT THAT TIME 
   const handleNext = () => {
     const emptyFields = [];
     if (currentSection === 0) {
@@ -168,6 +175,8 @@ const ApiFetch = () => {
       timestamp: new Date().toISOString(),
     };
 
+
+    // USSING GEMINI API
     try {
       const response = await axios.post(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyDh9cgV_kJT9VfhwtGneuXNHGz1ZewnvRs`,
@@ -201,7 +210,7 @@ const ApiFetch = () => {
       setResult(bulletPoints);
 
       // Save to  the firebase user history
-      const userId = auth.currentUser ?.uid || "guest"; // Adjust for authenticated users
+      const userId = auth.currentUser ?.uid || "guest"; 
       const historyRef = ref(db, `users/${userId}/history`);
       const newEntryRef = push(historyRef);
       await set(newEntryRef, { ...log, output: bulletPoints });
@@ -213,6 +222,7 @@ const ApiFetch = () => {
     }
   };
 
+  // CREAR THE INPUT FEILD
   const handleReset = () => {
     setGender("");
     setAge("");

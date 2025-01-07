@@ -516,10 +516,13 @@
       max-height: 60vh;
       padding: 10px;
     }
-  
+  .main-api-div{
+    padding: 17px;
+  }
     .many-input-field {
       width: 100%;
       padding: 10px;
+      height: auto;
     }
   
     .fitness input,
