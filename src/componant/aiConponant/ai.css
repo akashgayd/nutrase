@@ -253,11 +253,14 @@
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
-    border: none;
+    border: 1px solid rgba(245, 222, 179, 0);
+    
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    
   }
+ 
   
   .btn-toggle-history:hover {
     background-color: #0056b3;
@@ -265,7 +268,7 @@
   
   .save-quition {
     position: absolute;
-    top: 16%;
+    top: 5%;
     width: 5%;
   
     display: flex;
@@ -273,6 +276,8 @@
     flex-wrap: wrap;
     background-color: #fff;
     border-radius: 7px;
+    border: none;
+    outline: none;
   }
   .save-quition button {
     width: 100px;
@@ -413,7 +418,7 @@
   
     .save-quition {
       position: absolute;
-      top: 15%;
+      top: 2%;
       width: 13%;
       font-size: 20px;
   }
@@ -507,7 +512,7 @@
       z-index: 1;
       font-size: 20px;
       position: absolute;
-      top: 13%;
+      top: 8%;
       transition-duration: 0.7s;
   }
     .save-function {
@@ -522,8 +527,8 @@
     .btn-grad1 {
       background-color: #ffffff;
       height: 2rem;
-      left: 28%;
-      top: 4%;
+      left: 20%;
+      top: 8%;
   }
   
     .ans-container {

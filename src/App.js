@@ -4,6 +4,7 @@ import { Routes,Route } from 'react-router-dom';
 import ApiFetch from './componant/aiConponant/ai';
 import Notfound from './componant/home/notFound/notFound';
 import Blog from './componant/home/blog/blog';
+import AboutPage from './componant/pages/aboutPage/aboutPage';
 
 
 
@@ -34,7 +35,7 @@ function App() {
 <Route path='/blog' element ={<Blog/>}></Route>
 
 <Route path='/contact' element ={<ContactUs/>}></Route>
-
+<Route path='/about' element ={<AboutPage/>}></Route>
 
 
 
