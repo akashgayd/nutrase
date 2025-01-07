@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const MainCourse = () => {
     const navigate = useNavigate();
     function ask() {
-        navigate("/askNutras");
+        navigate("/Dietplan");
       }
   return (
     <div className="Main-course-Cont">
