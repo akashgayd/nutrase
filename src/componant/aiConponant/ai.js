@@ -23,7 +23,6 @@ const ApiFetch = () => {
   const [work, setWork] = useState("");
   const [targetWeight, setTargetWeight] = useState("");
   const [days, setDays] = useState("");
-
   const [vegetarian, setvegetarian] = useState("");
   const [eat, seteat] = useState("");
   const [budget, setBudget] = useState("");
@@ -34,15 +33,12 @@ const ApiFetch = () => {
   const [questionsLog, setQuestionsLog] = useState([]);
   const [showQuestions, setShowQuestions] = useState(false);
   const [shakeFields, setShakeFields] = useState([]);
-
   const [selectedHistoryOutput, setSelectedHistoryOutput] = useState(null);
 
-  
-   
   useEffect(() => {
-    const userId = auth.currentUser?.uid || "guest"; // Adjust for authenticated users
+    const userId = auth.currentUser ?.uid || "guest"; // Adjust for authenticated users
     const historyRef = ref(db, `users/${userId}/history`);
-  
+
     onValue(historyRef, (snapshot) => {
       const data = snapshot.val();
       const logs = data
@@ -54,7 +50,7 @@ const ApiFetch = () => {
       setQuestionsLog(logs);
     });
   }, []);
-  
+
   const groupQuestionsByDate = (logs) => {
     const today = new Date();
     const grouped = {
@@ -63,13 +59,11 @@ const ApiFetch = () => {
       last7Days: [],
     };
 
-    // using forEach to itrirate the array
     logs.forEach((log) => {
       const logDate = new Date(log.timestamp);
       const logDay = logDate.getDate();
       const todayDay = today.getDate();
 
-      // usnig the condition check the what is ask the quition today or tommarow
       if (
         logDate.getFullYear() === today.getFullYear() &&
         logDate.getMonth() === today.getMonth()
@@ -89,14 +83,11 @@ const ApiFetch = () => {
     return grouped;
   };
 
-  // that can be use nextfunction the click the buttion user show next input
   const handleNext = () => {
     const emptyFields = [];
     if (currentSection === 0) {
       if (!name) emptyFields.push("name");
-
       if (!age) emptyFields.push("age");
-
       if (!gender) emptyFields.push("gender");
 
       if (emptyFields.length > 0) {
@@ -106,12 +97,8 @@ const ApiFetch = () => {
       }
     }
     if (currentSection === 1) {
-      // && (!weight || !height || !work )
-
       if (!weight) emptyFields.push("weight");
-
       if (!height) emptyFields.push("height");
-
       if (!work) emptyFields.push("work");
 
       if (emptyFields.length > 0) {
@@ -123,21 +110,17 @@ const ApiFetch = () => {
     setCurrentSection((prev) => prev + 1);
   };
 
-  // and this is user show the previous input
   const handlePrevious = () => {
     setCurrentSection((prev) => Math.max(prev - 1, 0));
   };
 
   const handleHistoryClick = (log) => {
-    // S
     setSelectedHistoryOutput(log.output);
-    // Hide the input form and show the output screen to user 
     setInputsVisible(false);
   };
-  
 
-  
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
     const emptyFieldsAll = [];
     if (
@@ -158,18 +141,18 @@ const ApiFetch = () => {
       if (!eat) emptyFieldsAll.push("eat");
       if (!budget) emptyFieldsAll.push("budget");
       if (!vegetarian) emptyFieldsAll.push("vegetarian");
-  
+
       if (emptyFieldsAll.length > 0) {
         setShakeFields(emptyFieldsAll);
         setTimeout(() => setShakeFields([]), 1000);
         return;
       }
     }
-  
+
     setLoading(true);
     setResult([]);
     setInputsVisible(false);
-  
+
     const log = {
       name,
       gender,
@@ -184,7 +167,7 @@ const ApiFetch = () => {
       eat,
       timestamp: new Date().toISOString(),
     };
-  
+
     try {
       const response = await axios.post(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyDh9cgV_kJT9VfhwtGneuXNHGz1ZewnvRs`,
@@ -192,25 +175,23 @@ const ApiFetch = () => {
           contents: [
             {
               parts: [
-                { text:` i am ${name}.` },
-                { text: `my current age is ${age}. `},
-                { text:` I m ${gender}.` },
-                { text:` my current weight is  ${weight} kg.` },
-                { text: ` my current height  is  ${height} fit.` },
-                { text: `current   : ${work} is.` },
-                { text: `my target weight is ${targetWeight} kg. ` },
-                { text: ` Im a  ${vegetarian}  ` },
-                { text: `daily food consompsion  ${eat} in a day ` },
-                {
-                  text: ` this is my ${budget}} in rupeess provied only this budget food and activity  in monthly budget`,
-                },
-                { text: ` in  ${days} days.` },
+                { text: `I am ${name}.` },
+                { text: `My current age is ${age}.` },
+                { text: `I am ${gender}.` },
+                { text: `My current weight is ${weight} kg.` },
+                { text: `My current height is ${height} ft.` },
+                { text: `Current work: ${work}.` },
+                { text: `My target weight is ${targetWeight} kg.` },
+                { text: `I am a ${vegetarian}.` },
+                { text: `Daily food consumption: ${eat}.` },
+                { text: `This is my budget: ${budget} rupees.` },
+                { text: `In ${days} days.` },
               ],
             },
           ],
         }
       );
-  
+
       const answer =
         response.data?.candidates?.[0]?.content?.parts?.[0]?.text ||
         "No response available. Please try again.";
@@ -218,23 +199,20 @@ const ApiFetch = () => {
         .split("\n")
         .filter((line) => line.trim() !== "");
       setResult(bulletPoints);
-  
+
       // Save to Firebase
-      const userId = auth.currentUser?.uid || "guest"; // Adjust for authenticated users
+      const userId = auth.currentUser ?.uid || "guest"; // Adjust for authenticated users
       const historyRef = ref(db, `users/${userId}/history`);
       const newEntryRef = push(historyRef);
       await set(newEntryRef, { ...log, output: bulletPoints });
-    } catch (error) {
+    } catch(error) {
       console.error("Error fetching data from API:", error);
       setResult(["An error occurred. Please try again."]);
     } finally {
       setLoading(false);
     }
   };
-  
 
-
-  // that funtion is create the toggle button user  click this button that time show the history of quition
   const handleReset = () => {
     setGender("");
     setAge("");
@@ -252,8 +230,7 @@ const ApiFetch = () => {
     setCurrentSection(0);
     setSelectedHistoryOutput(null); // Clear selected history output
   };
-  
-  
+
   const handleShowQuestions = () => {
     setShowQuestions(!showQuestions);
   };
@@ -262,11 +239,10 @@ const ApiFetch = () => {
 
   return (
     <>
- 
- <div className="main-api-div">
+      <div className="main-api-div">
         {inputsVisible ? (
           <div className="many-input-field">
-            <form onSubmit={handleSubmit} className="ai-fill-form">
+                 <form onSubmit={handleSubmit} className="ai-fill-form">
               <div className="heding-of-ai"></div>
               {currentSection === 0 ? (
                 <>
@@ -519,21 +495,18 @@ const ApiFetch = () => {
         ) : (
           <div className="main-result">
             {loading ? (
-              <img src={loadingImg} alt="Loading..." className="loding-img" />
+              <img src={loadingImg} alt="Loading..." className="loading-img" />
             ) : (
               <ul className="ans-container">
-                {result.map((item, index) => (
-                  <>
-                    <li key={index}>
-                      <Markdown className="markup-text">{item}</Markdown>
-                    </li>
-                  </>
+                {(selectedHistoryOutput || result).map((item, index) => (
+                  <li key={index}>
+                    <Markdown className="markup-text">{item}</Markdown>
+                  </li>
                 ))}
               </ul>
             )}
-
             <button className="btn-grad1" onClick={handleReset}>
-              <img src={refress} />
+              <img src ={refress} />
             </button>
           </div>
         )}
@@ -542,33 +515,33 @@ const ApiFetch = () => {
       <div className="save-quition">
         <button onClick={handleShowQuestions}>
           {showQuestions ? (
-            <MdOutlineFilterList className="icons"> </MdOutlineFilterList>
+            <MdOutlineFilterList className="icons"></MdOutlineFilterList>
           ) : (
             <MdOutlineFilterListOff className="icons"></MdOutlineFilterListOff>
           )}
         </button>
 
-
-   
-
-{showQuestions && (
-  <div className="save-function">
-    <img src={logo} />
-    {questionsLog.map((log, index) => (
-      <Link style={{color:'black', fontSize:'13px'}}
-        key={index}
-        className="history-entry"
-        onClick={() => handleHistoryClick(log)} // Fetch output on click
-      >
-        <p>
-          <strong>Name:</strong> {log.name}, <strong>Gender:</strong> {log.gender}, <strong>Age:</strong> {log.age}
-        </p>
-      </Link>
-    ))}
-  </div>
-)}
+        {showQuestions && (
+          <div className="save-function">
+            <img src={logo} />
+            {questionsLog.map((log, index) => (
+              <Link
+                style={{ color: 'black', fontSize: '13px' }}
+                key={index}
+                className="history-entry"
+                onClick={() => handleHistoryClick(log)} // Fetch output on click
+              >
+                <p>
+                  <strong>Name:</strong> {log.name}, <strong>Gender:</strong> {log.gender}, <strong>Age:</strong> {log.age}
 
 
+                  <strong>Weight:</strong> {log.weight}, <strong>height:</strong> {log.height}, <strong>professional:</strong> {log.work}
+
+                </p>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </>
   );

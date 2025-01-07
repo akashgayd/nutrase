@@ -51,7 +51,7 @@ const Header = () => {
             <a className="navbar-brand" href="#">
               <img
                 alt="Logo"
-                className="d-inline-block align-text-top"
+                className="d-inline-block align-text-top nav-img"
                 src={logo}
                 onClick={home}
               ></img>
@@ -69,8 +69,8 @@ const Header = () => {
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse header-nav" id="navbarNav">
-              <ul className="navbar-nav me-auto ms-4 custom-nav">
+            <div className="collapse navbar-collapse header-nav " id="navbarNav">
+              <ul className="navbar-nav me-auto ms-4 custom-nav nav-all-list">
                 <li className="nav-item" onClick={about}>
                   <a className="nav-link">About</a>
                 </li>
