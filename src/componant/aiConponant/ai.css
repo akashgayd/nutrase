@@ -462,6 +462,7 @@
     .ans-container {
       width: 85%;
       font-size: 18px;
+      background-color: #fff;
     }
     .markup-text {
       text-align: justify;
