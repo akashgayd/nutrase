@@ -34,6 +34,9 @@ const ApiFetch = () => {
   const [showQuestions, setShowQuestions] = useState(false);
   const [shakeFields, setShakeFields] = useState([]);
   const [selectedHistoryOutput, setSelectedHistoryOutput] = useState(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+
 
 
 
@@ -53,6 +56,12 @@ const ApiFetch = () => {
       setQuestionsLog(logs);
     });
   }, []);
+
+
+
+
+
+
 
 
   // QUESTION CAN STORE IN ATLEST 7 DAYS
@@ -243,6 +252,7 @@ const ApiFetch = () => {
 
   const handleShowQuestions = () => {
     setShowQuestions(!showQuestions);
+    setIsVisible(!isVisible)
   };
 
   const groupedQuestions = groupQuestionsByDate(questionsLog);
@@ -532,7 +542,7 @@ const ApiFetch = () => {
           )}
         </button>
         {showQuestions && (
-  <div className="save-function">
+ <div className={`save-function ${isVisible ? "visible" : ""}`}>
     <p>History</p>
 
     {/*today's question ask by useer */}

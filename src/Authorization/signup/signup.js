@@ -76,7 +76,7 @@ const Register = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      navigate('/');
+                      navigate('/signup');
                     }}
                     className="login-btn"
                   >

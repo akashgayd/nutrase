@@ -309,10 +309,33 @@
     border-radius: 10px;
     margin-top: 5px;
   
-    scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+    
     background-color: #f0f0f0f0;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    transition:  0.9s ease;
     /* box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.324); */
   }
+
+
+/* 
+  .save-function {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+  }
+   */
+  .visible{
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+
   .save-function p {
     font-weight: 600;
   }
