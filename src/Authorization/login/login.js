@@ -16,7 +16,7 @@ const Login = () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
           if (user) {
-            navigate("/home");
+            navigate("/");
           }
         });
 
@@ -35,7 +35,7 @@ const Login = () => {
         e.preventDefault();
         signInWithEmailAndPassword(auth, email, password)
           .then(() => {
-            navigate("/home");
+            navigate("/");
           })
           .catch((err) => alert(err.message));
       };
