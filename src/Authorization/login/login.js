@@ -1,44 +1,44 @@
 import React, { useState, useEffect } from "react";
 import "./login.css";
 import { auth } from "../../firebase";
-import {
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-} from "firebase/auth";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+const Login = ({ onLoginSuccess }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const[error,setError] = useState('')
+  const navigate = useNavigate();
 
-    const navigate = useNavigate(); 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        navigate("/");
+      }
+    });
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-          if (user) {
-            navigate("/");
-          }
-        });
+    return () => unsubscribe();
+  }, [navigate]);
 
-        return () => unsubscribe();
-      }, [navigate]);
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
-      };
-    
-      const handlePasswordChange = (e) => {
-        setPassword(e.target.value);
-      };
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-      const handleLogin = (e) => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-          .then(() => {
-            navigate("/");
-          })
-          .catch((err) => alert(err.message));
-      };
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    try {
+      signInWithEmailAndPassword(auth, email, password);
+      onLoginSuccess();
+    } 
+    catch (error) {
+      setError("rroor");
+    }
+  
+  }
 
   return (
     <div className="login-main-cont">
@@ -67,18 +67,8 @@ const Login = () => {
             <button type="submit" className="login-btn">
               LOGIN
             </button>
-            <div className="signup-option">
-              <p className="signup-text">Or Sign Up Using</p>
-              
-              <button
-                type="button"
-                onClick={() => {
-                    navigate("/signup");
-                }}
-                className="login-btn"
-              >
-                Or Create A New Account
-              </button>
+            <div className="signup- link">
+              <p>Don't have an account? <a href="/signup">Sign up</a></p>
             </div>
           </div>
         </form>
