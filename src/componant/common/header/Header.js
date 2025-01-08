@@ -22,7 +22,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/login");
+        navigate("/");
       })
       .catch((err) => {
         alert(err.message);

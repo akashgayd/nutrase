@@ -24,7 +24,7 @@ const Register = () => {
     } else {
       createUserWithEmailAndPassword(auth, registerInfo.email, registerInfo.password)
         .then(() => {
-          navigate("/");
+          navigate("/home");
         })
         .catch((err) => alert(err.message));
     }
