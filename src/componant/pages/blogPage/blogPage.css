@@ -180,7 +180,9 @@
     font-size: 14px;
     color: black;
   }
-  
+  .blogs-feilds:hover{
+    text-decoration: none;
+  }
   @media (min-width: 1024px) {
     .About-us-main-cont-cont {
       width: 90%;
@@ -307,6 +309,7 @@
     .blog-image:hover,
     .article-image:hover {
       transform: scale(1.05);
+      text-decoration: none;
     }
   
     .blog-image,

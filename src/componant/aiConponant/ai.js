@@ -523,6 +523,7 @@ const ApiFetch = () => {
       </div>
 
       <div className="save-quition">
+        
         <button onClick={handleShowQuestions}>
           {showQuestions ? (
             <MdOutlineFilterList className="icons"></MdOutlineFilterList>
@@ -530,29 +531,69 @@ const ApiFetch = () => {
             <MdOutlineFilterListOff className="icons"></MdOutlineFilterListOff>
           )}
         </button>
-
         {showQuestions && (
-          <div className="save-function">
-            <p>History</p>
-            {questionsLog.map((log, index) => (
-              <Link  className="history-entry"
+  <div className="save-function">
+    <p>History</p>
 
-                // style={{ color: 'black', fontSize: '13px'  }}
-                key={index}
-                
-                onClick={() => handleHistoryClick(log)} // Fetch output on click
-              >
-                <p>
-                  <strong>Name:</strong> {log.name}, <strong>Gender:</strong> {log.gender}, <strong>Age:</strong> {log.age}
+    {/*today's question ask by useer */}
+    {groupedQuestions.today.length > 0 && (
+      <div className="history-group">
+        <h5>Today</h5>
+        {groupedQuestions.today.map((log, index) => (
+          <Link
+            className="history-entry"
+            key={index}
+            onClick={() => handleHistoryClick(log)}
+          >
+            <p>
+              <strong>Name:</strong> {log.name}, <strong>Gender:</strong> {log.gender}, <strong>Age:</strong> {log.age}
+              <strong>Weight:</strong> {log.weight}, <strong>Height:</strong> {log.height}, <strong>Profession:</strong> {log.work}
+            </p>
+          </Link>
+        ))}
+      </div>
+    )}
 
+    {/* Yesterday's  question ask by user */}
+    {groupedQuestions.yesterday.length > 0 && (
+      <div className="history-group">
+        <h5>Yesterday</h5>
+        {groupedQuestions.yesterday.map((log, index) => (
+          <Link
+            className="history-entry"
+            key={index}
+            onClick={() => handleHistoryClick(log)}
+          >
+            <p>
+              <strong>Name:</strong> {log.name}, <strong>Gender:</strong> {log.gender}, <strong>Age:</strong> {log.age}
+              <strong>Weight:</strong> {log.weight}, <strong>Height:</strong> {log.height}, <strong>Profession:</strong> {log.work}
+            </p>
+          </Link>
+        ))}
+      </div>
+    )}
 
-                  <strong>Weight:</strong> {log.weight}, <strong>height:</strong> {log.height}, <strong>professional:</strong> {log.work}
-
-                </p>
-              </Link>
-            ))}
-          </div>
-        )}
+    {/* Last 7 Days 7days will be complate question will be automaticuly deleted */}
+    {groupedQuestions.last7Days.length > 0 && (
+      <div className="history-group">
+        <h4>Last 7 Days</h4>
+        {groupedQuestions.last7Days.map((log, index) => (
+          <Link
+            className="history-entry"
+            key={index}
+            onClick={() => handleHistoryClick(log)}
+          >
+            <p>
+              <strong>Name:</strong> {log.name}, <strong>Gender:</strong> {log.gender}, <strong>Age:</strong> {log.age}
+              <strong>Weight:</strong> {log.weight}, <strong>Height:</strong> {log.height}, <strong>Profession:</strong> {log.work}
+            </p>
+          </Link>
+        ))}
+      </div>
+    )}
+  </div>
+)}
+       
       </div>
     </>
   );

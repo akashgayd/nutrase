@@ -127,7 +127,7 @@ const Blogs = () => {
           <br></br>
         </div>
       </div>
-      <a href="https://www.glofox.com/blog/fitness-blogs/">
+      <a href="https://www.glofox.com/blog/fitness-blogs/" className="blogs-feilds">
         <section className="blog-grid-cont container">
           <article className="blog-post">
             <h4>Investing in an Anytime Fitness Gym</h4>
@@ -231,7 +231,7 @@ const Blogs = () => {
         </div>
       </div>
       <br></br> <br></br>
-      <a href="https://www.glofox.com/blog/fitness-blogs/">
+      <a href="https://www.glofox.com/blog/fitness-blogs/" className="blogs-feilds">
         <section className="blog-grid-cont container">
           <article className="blog-post">
             <h4>The Complete Guide to Plant-Based Protein</h4>
