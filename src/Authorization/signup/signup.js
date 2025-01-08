@@ -3,31 +3,19 @@ import { auth } from "../../firebase";
 import { onAuthStateChanged, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const Register = ({ onSignupSuccess }) => {
+const Register = () => {
   const [registerInfo, setRegisterInfo] = useState({
     email: "",
     password: "",
     confirmPassword: "",
     confirmEmail: "",
   });
-  const[mail,setEmail] = useState('');
-  const[pass,setPassword] = useState('');
-  const [error,setError] = useState('')
-
 
   const navigate = useNavigate();
 
 
-  const handleRegister = async(e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-
-    try {
-      await createUserWithEmailAndPassword(auth,mail,pass);
-      onSignupSuccess();
-    } 
-    catch (error) {
-      setError("error")
-    }
 
     if (registerInfo.email !== registerInfo.confirmEmail) {
       alert("Please confirm that both emails are the same");
@@ -36,7 +24,7 @@ const Register = ({ onSignupSuccess }) => {
     } else {
       createUserWithEmailAndPassword(auth, registerInfo.email, registerInfo.password)
         .then(() => {
-          navigate("/");
+          navigate("/home");
         })
         .catch((err) => alert(err.message));
     }

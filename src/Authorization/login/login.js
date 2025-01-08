@@ -4,10 +4,9 @@ import { auth } from "../../firebase";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ onLoginSuccess }) => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const[error,setError] = useState('')
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,17 +27,14 @@ const Login = ({ onLoginSuccess }) => {
     setPassword(e.target.value);
   };
 
-  const handleLogin = async(e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      signInWithEmailAndPassword(auth, email, password);
-      onLoginSuccess();
-    } 
-    catch (error) {
-      setError("rroor");
-    }
-  
-  }
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => alert(err.message));
+  };
 
   return (
     <div className="login-main-cont">
