@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./footer.css";
+import { useEffect, useState } from 'react';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -17,9 +19,48 @@ const Footer = () => {
     navigate("/about");
   }
 
-  function ask() {
-    navigate("/askNutras");
-  }
+
+
+  
+
+  // state to check and hold the user is auorized aur not
+
+    const [user, setUser ] = useState(null); 
+
+    // Initialize Firebase Auth to firebase
+    const auth = getAuth();
+  
+    // Check user authentication status on component mount using useEffect 
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, (user) => {
+        if (user) {
+
+          // user signin success
+          setUser (user); 
+        } else {
+          setUser (null); 
+          // user can be signOut
+        }
+      });
+  
+      return () => unsubscribe(); 
+    }, [auth]);
+  
+    // Function to handle navigation user is Authorised user can be navigate to the dietplan not authori navigate signup
+    function handleNavigate() {
+      if (user) {
+        navigate('/Dietplan'); // Navigate to Dietplan if user is authenticated
+      } else {
+        navigate('/Signup'); // Redirect to Signup page if user is not authenticated
+      }
+    }
+  
+
+
+
+
+
+
   return (
     <>
 
@@ -30,7 +71,7 @@ const Footer = () => {
           <br/>
           <p className="footer-sub-para">This Life Style For Your Fitness Not Only Diet.</p>
           <br/>
-          <button className="footer-button" onClick={ask}>Try Nutras</button>
+          <button className="footer-button" onClick={handleNavigate}>Try Nutras</button>
         </div>
     
         <div className="footer-right-content">

@@ -18,23 +18,32 @@ const MainCourse = () => {
 
   const navigate = useNavigate();
 
-  const [user, setUser ] = useState(null); // State to hold user authentication status
-  const auth = getAuth(); // Initialize Firebase Auth
+  
 
-  // Check user authentication status on component mount
+  // state to check and hold the user is auorized aur not
+
+  const [user, setUser ] = useState(null); 
+
+  // Initialize Firebase Auth to firebase
+  const auth = getAuth();
+
+  // Check user authentication status on component mount using useEffect 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser (user); // User is signed in
+
+        // user signin success
+        setUser (user); 
       } else {
-        setUser (null); // User is signed out
+        setUser (null); 
+        // user can be signOut
       }
     });
 
-    return () => unsubscribe(); // Cleanup subscription on unmount
+    return () => unsubscribe(); 
   }, [auth]);
 
-  // Function to handle navigation
+  // Function to handle navigation user is Authorised user can be navigate to the dietplan not authori navigate signup
   function handleNavigate() {
     if (user) {
       navigate('/Dietplan'); // Navigate to Dietplan if user is authenticated
@@ -42,9 +51,6 @@ const MainCourse = () => {
       navigate('/Signup'); // Redirect to Signup page if user is not authenticated
     }
   }
-
-
-
 
 
 
