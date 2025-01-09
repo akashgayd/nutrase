@@ -40,13 +40,14 @@ const Login = () => {
     <div className="login-main-cont">
       <div className="login-cont">
         <form className="login-form" onSubmit={handleLogin}>
+          <br/>
           <h1 className="log-heading">Login</h1>
           <div className="login-form-grp">
             <label className="login-label">Email:</label>
             <input
               type="email"
               className="login-input"
-              placeholder="Enter Email"
+              placeholder="for example: udanous@gmail.com"
               value={email}
               onChange={handleEmailChange}
             />
@@ -55,7 +56,7 @@ const Login = () => {
             <input
               type="password"
               className="login-input"
-              placeholder="Enter password"
+              placeholder="for example: udanous"
               value={password}
               onChange={handlePasswordChange}
             />
@@ -63,8 +64,19 @@ const Login = () => {
             <button type="submit" className="login-btn">
               LOGIN
             </button>
-            <div className="signup- link">
-              <p>Don't have an account? <a href="/signup">Sign up</a></p>
+            <div className="signup-option">
+              <p className="signup-text">Or Sign Up Using</p>
+              
+              <button
+                type="button"
+                onClick={() => {
+                    navigate("/signup");
+                }}
+                className="login-btn"
+              >
+                Or Create A New Account
+              </button>
+              <br/>
             </div>
           </div>
         </form>

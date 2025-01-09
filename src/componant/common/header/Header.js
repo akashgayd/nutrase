@@ -1,14 +1,19 @@
 import "./Header.css";
+import { useState } from "react";
 import logo from '../../../aseets/logo3.jpg'
 import React, { useEffect } from "react";
 import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+
+
 
 const Header = () => {
+  
   const navigate = useNavigate();
-
+const[model,setmodel] = useState(false)
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
@@ -22,7 +27,7 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/");
+        navigate("/login");
       })
       .catch((err) => {
         alert(err.message);
@@ -36,18 +41,36 @@ const Header = () => {
     navigate("/contact");
   }
   function home() {
-    navigate("/home");
+    navigate("/");
   }
 
   function about() {
     navigate("/about");
   }
 
+  const Logbtn =()=>{
+
+    return(
+      <>
+      <div className ="log-model">
+      <p>Are you sure to logout</p>
+      <div>
+      <button onClick={handleSignOut} style={{backgroundColor:"red"}}>logout</button> <button onClick={()=> setmodel(false)}>cancel</button>
+      </div>
+      </div>
+
+      </>
+    )
+
+  }
+
+  
+
   return (
     <>
       <div className="main-header-cont">
-        <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-          <div className="container-fluid">
+        <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top main-nav-list">
+          <div className="container-fluid main-nav-list">
             <a className="navbar-brand" href="#">
               <img
                 alt="Logo"
@@ -69,7 +92,8 @@ const Header = () => {
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div className="collapse navbar-collapse header-nav " id="navbarNav">
+            <div className="collapse navbar-collapse header-nav" id="navbarNav">
+              
               <ul className="navbar-nav me-auto ms-4 custom-nav nav-all-list">
                 <li className="nav-item" onClick={about}>
                   <a className="nav-link">About</a>
@@ -80,18 +104,22 @@ const Header = () => {
                 <li className="nav-item" onClick={contact}>
                   <a className="nav-link">Contact</a>
                 </li>
+
               </ul>
 
               <div className="togglelogoubtn">
                 <button
                   className="btn btn-outline-danger"
                   type="submit"
-                  onClick={handleSignOut}
+                  onClick={()=> setmodel(true)}
                 >
-                  Logout
+                 <FiLogOut className="logout-btn-icon"></FiLogOut>
                 </button>
-              </div>
+                <div>{model && <Logbtn/>}</div>
+              </div> 
+             
             </div>
+          
           </div>
         </nav>
       </div>

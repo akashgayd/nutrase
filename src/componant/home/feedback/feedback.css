@@ -8,7 +8,7 @@
 }
 
 .main-about-cont-part{
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -36,7 +36,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    filter: drop-shadow(1px 1px 20px rgba(0, 0, 0, 0.504));
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 0, 0.504));
 }
 
 .main-about-marquee-part{

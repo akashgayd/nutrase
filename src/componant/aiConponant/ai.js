@@ -13,6 +13,10 @@ import { RxReload } from "react-icons/rx";
 import { getDatabase, ref, set, push, onValue } from "firebase/database";
 import { db, auth } from "../../firebase";
 import { Link } from "react-router-dom";
+import Footer from "../common/Footer/footer"
+import Header from "../common/header/Header";
+
+
 
 const ApiFetch = () => {
   const [name, setName] = useState("");
@@ -35,6 +39,8 @@ const ApiFetch = () => {
   const [shakeFields, setShakeFields] = useState([]);
   const [selectedHistoryOutput, setSelectedHistoryOutput] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [reload, setReload] = useState(false);
+ 
 
 
 
@@ -257,10 +263,31 @@ const ApiFetch = () => {
 
   const groupedQuestions = groupQuestionsByDate(questionsLog);
 
+
+  const RefressBtn=()=>{
+
+    return(
+      <>
+      <div className="reload-btn">
+    <p>sure to reload</p>
+    <div>
+      <button onClick={handleReset}>Yes</button> <button onClick={()=> setReload(false)}>No</button>
+    </div>
+    </div>
+      </>
+    )
+  }
+
   return (
     <>
+    <Header/>
+    
       <div className="main-api-div">
+        <br></br>
+        <br></br>
+        <br></br>
         {inputsVisible ? (
+          
           <div className="many-input-field">
                  <form onSubmit={handleSubmit} className="ai-fill-form">
               <div className="heding-of-ai"></div>
@@ -406,7 +433,7 @@ const ApiFetch = () => {
                           ? "shake red-outline"
                           : ""
                       }
-                      type="text"
+                      type="number"
                       placeholder="Target Weight..."
                       value={targetWeight}
                       onChange={(e) => setTargetWeight(e.target.value)}
@@ -477,7 +504,7 @@ const ApiFetch = () => {
                           ? "shake red-outline"
                           : ""
                       }
-                      type="text"
+                      type="number"
                       placeholder="your budget..."
                       value={budget}
                       onChange={(e) => setBudget(e.target.value)}
@@ -525,9 +552,10 @@ const ApiFetch = () => {
                 ))}
               </ul>
             )}
-            <button className="btn-grad1" onClick={handleReset}>
+            <button className="btn-grad1" onClick={()=> setReload(true)}>
               <RxReload className="icon-reloed"></RxReload>
             </button>
+            <div>{reload &&<RefressBtn/>}</div>
           </div>
         )}
       </div>
@@ -605,6 +633,7 @@ const ApiFetch = () => {
 )}
        
       </div>
+      <Footer/>
     </>
   );
 };

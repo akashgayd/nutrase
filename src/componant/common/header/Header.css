@@ -13,8 +13,13 @@
 .header-nav{
   width: 100%;
   display: flex;
-  justify-content: space-between;
+ 
+justify-content: center;
+align-items: center;
+position: relative;
+
 }
+
 .nav-items{
   display: flex;
   align-items: center;
@@ -68,11 +73,61 @@ cursor: pointer;
   align-items: center;
   justify-content: center;
 }
-@media screen and (max-width:767px){
+.logout-btn-icon{
+  font-weight: 600;
+font-size: 20px;
+
+}
+.main-nav-list{
+  display: flex;
+  justify-content: space-between;
+}
+.togglelogoubtn{
+
+  position: absolute;
+  right: 0%;
+}
+
+.log-model{
+  width: 200px;
+  
+  padding: 10px;
+ 
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  top: 30%;
+  margin-top: 30px;
+  right: 10%;
+  border-radius: 10px;
+background-color: rgb(18, 2, 11);
+color: white;
+
+}
+.log-model div{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+.log-model button{
+  border: none;
+  background-color: rgba(29, 122, 29, 0.9);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 8px;
+
+}
+.log-model button:focus{
+  outline: none;
+}
+@media (min-width:730px)and (max-width:999px){
 .nav-bar{
   flex-direction: column;
   justify-content: center;
 }
+
 .nav-items{
   flex-direction: column;
 }
@@ -84,6 +139,7 @@ cursor: pointer;
   display: flex;
   justify-content: center;
   padding-top: 3px;
+  position: static;
 }
 
 .header-nav{
@@ -91,6 +147,9 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.log-model{
+ right: 10%;
 }
 }
 
@@ -100,4 +159,24 @@ cursor: pointer;
   }
 
 
+
+}
+@media (min-width:320px) and (max-width:999px){
+.header-nav{
+  position: static;
+  flex-direction: column;
+}
+  .togglelogoubtn{
+    position: static;
+    
+  }
+  
+}
+@media (min-width:320) and(max-width:736px){
+  .header-nav{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
 }
