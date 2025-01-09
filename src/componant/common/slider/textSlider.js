@@ -18,8 +18,7 @@ const TextSlider = () => {
         <div className="text1">
         Limited-Time Offer: Get 30% Off on All Fitness Plans
         </div>
-       
-       
+      
         
         </div>
       
