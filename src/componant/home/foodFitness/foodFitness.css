@@ -6,21 +6,7 @@
     flex-direction: column;
   
   }
-  .heading-food-fiitness {
-    width: 100%;
- 
-    height: 5%;
-    border: 1px solid black;
-    
-    
-   
-    
-  }
-  
-  .heading-food-fiitness h1{
-    font-size: 24px;
-   
-  }
+
   
   .about-food-fitness {
     width: 100%;
@@ -83,7 +69,7 @@ padding: 8px;
   
     }
     .heading-food-fiitness {
-      height: 30vh;
+  
       width: 100%;
       display: flex;
       align-items: center;
@@ -150,3 +136,6 @@ padding: 8px;
   
     
   }
+
+
+  

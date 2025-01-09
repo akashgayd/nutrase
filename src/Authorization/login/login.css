@@ -58,7 +58,7 @@
     width: 100%;
     height: 55px;
     line-height: 1.2;
-    color: #333333;
+    color: #0e0c0c;
     font-size: 16px;
     border-bottom: 1px solid gray;
     margin-bottom: 14px;
@@ -70,7 +70,7 @@
     background: linear-gradient(to right, rgb(231, 234, 233), #8c8b8b);
     font-size: 16px;
     font-weight: 600;
-    color: white;
+    color: rgb(8, 2, 2);
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -82,7 +82,7 @@
   }
   
   .login-btn:hover {
-    background: linear-gradient(to left, rgb(0, 0, 0), #8c8b8b);
+    background: linear-gradient(to left, rgb(156, 156, 156), #8c8b8b);
   }
   
   .signup-option {
@@ -96,6 +96,13 @@
   .signup-text {
     font-size: 16px;
     font-weight: 400;
+  }
+  .already-have-ac{
+    background-color: rgb(38, 143, 38);
+    color: rgb(9, 7, 7);
+    width: 100%;
+    border: none;
+    
   }
   
   @media only screen and (max-width: 580px) {

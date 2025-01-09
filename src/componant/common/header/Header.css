@@ -122,6 +122,17 @@ color: white;
 .log-model button:focus{
   outline: none;
 }
+.autho-btn{
+  background-color: white;
+  padding: 4px 10px;
+  border: 0.5px solid lightblue;
+  border-radius: 40px;
+  margin-left: 6px;
+}
+.autho-btn:hover{
+  background-color: black;
+  color: white;
+}
 @media (min-width:730px)and (max-width:999px){
 .nav-bar{
   flex-direction: column;

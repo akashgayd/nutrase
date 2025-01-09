@@ -24,7 +24,7 @@ const Register = () => {
     } else {
       createUserWithEmailAndPassword(auth, registerInfo.email, registerInfo.password)
         .then(() => {
-          navigate("/");
+          navigate("/Deitplan");
         })
         .catch((err) => alert(err.message));
     }
@@ -76,11 +76,11 @@ const Register = () => {
                   <button
                     type="button"
                     onClick={() => {
-                      navigate('/');
+                      navigate('/login');
                     }}
-                    className="login-btn"
+                    className="login-btn already-have-ac"
                   >
-                    Go Back
+                    Already have a Account
                   </button>
                 </div>
               </div>

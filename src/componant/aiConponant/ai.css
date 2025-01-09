@@ -42,6 +42,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 15px;
+
  
   }
   .ans-container li {
@@ -52,6 +53,8 @@
     content: "• ";
     color: #000;
     margin-right: 5px;
+    font-weight: 900;
+    font-size: 20px;
   }
   
   .output-container {

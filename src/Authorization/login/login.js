@@ -31,7 +31,7 @@ const Login = () => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate("/");
+        navigate("/Dietplan");
       })
       .catch((err) => alert(err.message));
   };

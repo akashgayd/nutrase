@@ -40,6 +40,22 @@ const Feedback = () => {
                 love it.
                 </p>
               </div>
+
+
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Cena Doe</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+
               <div className="main-about-marquee-block">
                 <div className="main-about-icon-text-part">
                   <FaUserCircle className="main-about-icon"></FaUserCircle>
@@ -89,6 +105,22 @@ const Feedback = () => {
                   love it.
                 </p>
               </div>
+
+
+              <div className="main-about-marquee-block">
+                <div className="main-about-icon-text-part">
+                  <FaUserCircle className="main-about-icon"></FaUserCircle>
+                  <div className="main-about-text-title-part">
+                    <p className="main-about-text">Cena Doe</p>
+                   
+                  </div>
+                </div>
+                <p className="main-about-text-details">
+                I've never seen anything like this before. It's amazing. I
+                love it.
+                </p>
+              </div>
+
               <div className="main-about-marquee-block">
                 <div className="main-about-icon-text-part">
                   <FaUserCircle className="main-about-icon"></FaUserCircle>

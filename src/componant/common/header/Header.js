@@ -1,7 +1,7 @@
 import "./Header.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import logo from '../../../aseets/logo3.jpg'
-import React, { useEffect } from "react";
+
 import { auth } from "../../../firebase";
 import { signOut } from "firebase/auth";
 import { onAuthStateChanged } from "firebase/auth";
@@ -16,10 +16,11 @@ const Header = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setIsLoggedIn(true); // User is logged in
+        // check the user is logged or not click the buttun condition will be true
+        setIsLoggedIn(true);
       } else {
-        setIsLoggedIn(false); // User is logged out
-        navigate("/"); // Redirect to home page if user is not logged in
+        setIsLoggedIn(false); 
+        navigate("/"); 
       }
     });
 
@@ -29,8 +30,8 @@ const Header = () => {
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        setIsLoggedIn(false); // Update state to reflect logged out status
-        navigate("/"); // Redirect to home page after logout
+        setIsLoggedIn(false); 
+        navigate("/"); 
       })
       .catch((err) => {
         alert(err.message);
@@ -106,23 +107,34 @@ const Header = () => {
 
               <div className="togglelogoubtn">
                 {isLoggedIn ? (
-                  <button
-                    className="btn btn-outline-danger"
-                    type="submit"
-                    onClick={() => setmodel(true)}
-                  >
-                    <FiLogOut className="logout-btn-icon"></FiLogOut>
-                  </button>
+                  <>
+                    <button
+                      className="btn btn-outline-danger"
+                      type="submit"
+                      onClick={() => setmodel(true)}
+                    >
+                      <FiLogOut className="logout-btn-icon"></FiLogOut>
+                    </button>
+                    {model && <Logbtn />}
+                  </>
                 ) : (
-                  <button
-                    className="btn btn-outline-success"
-                    type="submit"
-                    onClick={() => navigate("/login")}
-                  >
-                    Login
-                  </button>
+                  <>
+                    <button
+                      className="autho-btn"
+                      type="submit"
+                      onClick={() => navigate("/login")}
+                    >
+                      Login
+                    </button>
+                    <button
+                      className="autho-btn"
+                      type="submit"
+                      onClick={() => navigate("/signup")}
+                    >
+                      Signup
+                    </button>
+                  </>
                 )}
-                <div>{model && <Logbtn />}</div>
               </div>
             </div>
           </div>
