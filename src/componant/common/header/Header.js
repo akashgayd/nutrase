@@ -8,16 +8,18 @@ import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 
-
-
 const Header = () => {
-  
   const navigate = useNavigate();
-const[model,setmodel] = useState(false)
+  const [model, setmodel] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        navigate("/");
+      if (user) {
+        setIsLoggedIn(true); // User is logged in
+      } else {
+        setIsLoggedIn(false); // User is logged out
+        navigate("/"); // Redirect to home page if user is not logged in
       }
     });
 
@@ -27,7 +29,8 @@ const[model,setmodel] = useState(false)
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
-        navigate("/login");
+        setIsLoggedIn(false); // Update state to reflect logged out status
+        navigate("/"); // Redirect to home page after logout
       })
       .catch((err) => {
         alert(err.message);
@@ -48,23 +51,19 @@ const[model,setmodel] = useState(false)
     navigate("/about");
   }
 
-  const Logbtn =()=>{
-
-    return(
+  const Logbtn = () => {
+    return (
       <>
-      <div className ="log-model">
-      <p>Are you sure to logout</p>
-      <div>
-      <button onClick={handleSignOut} style={{backgroundColor:"red"}}>logout</button> <button onClick={()=> setmodel(false)}>cancel</button>
-      </div>
-      </div>
-
+        <div className="log-model">
+          <p>Are you sure to logout</p>
+          <div>
+            <button onClick={handleSignOut} style={{ backgroundColor: "red" }}>logout</button>
+            <button onClick={() => setmodel(false)}>cancel</button>
+          </div>
+        </div>
       </>
-    )
-
-  }
-
-  
+    );
+  };
 
   return (
     <>
@@ -93,7 +92,6 @@ const[model,setmodel] = useState(false)
             </button>
 
             <div className="collapse navbar-collapse header-nav" id="navbarNav">
-              
               <ul className="navbar-nav me-auto ms-4 custom-nav nav-all-list">
                 <li className="nav-item" onClick={about}>
                   <a className="nav-link">About</a>
@@ -104,22 +102,29 @@ const[model,setmodel] = useState(false)
                 <li className="nav-item" onClick={contact}>
                   <a className="nav-link">Contact</a>
                 </li>
-
               </ul>
 
               <div className="togglelogoubtn">
-                <button
-                  className="btn btn-outline-danger"
-                  type="submit"
-                  onClick={()=> setmodel(true)}
-                >
-                 <FiLogOut className="logout-btn-icon"></FiLogOut>
-                </button>
-                <div>{model && <Logbtn/>}</div>
-              </div> 
-             
+                {isLoggedIn ? (
+                  <button
+                    className="btn btn-outline-danger"
+                    type="submit"
+                    onClick={() => setmodel(true)}
+                  >
+                    <FiLogOut className="logout-btn-icon"></FiLogOut>
+                  </button>
+                ) : (
+                  <button
+                    className="btn btn-outline-success"
+                    type="submit"
+                    onClick={() => navigate("/login")}
+                  >
+                    Login
+                  </button>
+                )}
+                <div>{model && <Logbtn />}</div>
+              </div>
             </div>
-          
           </div>
         </nav>
       </div>

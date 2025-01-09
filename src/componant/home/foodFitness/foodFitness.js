@@ -20,10 +20,10 @@ const FoodFitness = () => {
     <>
       <div className="main-food-fitness-cont">
         <div className="heading-food-fiitness">
-          <h1>Fitness & Nutrition</h1>
-          <div>
+         
+         
            <TextSlider />
-           </div>
+           
         
          
         </div>

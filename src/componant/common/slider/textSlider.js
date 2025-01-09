@@ -11,6 +11,7 @@ const TextSlider = () => {
 
         <div className="text1">
         Transform Your Fitness Journey Today!
+        Tips and Workouts
         </div>
         <div className="text2">
         Exclusive Fitness Tips and Workouts
