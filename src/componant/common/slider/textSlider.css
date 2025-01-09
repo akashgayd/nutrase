@@ -1,13 +1,13 @@
 .main-marque-cont{
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 30px;
   align-items: center;
   justify-content: center;
 
    
-  background-color: rgb(209, 209, 209);
+  
  
 }
 marquee{
@@ -17,6 +17,8 @@ marquee{
 
 .text1{
   font-size: 20px;
+  margin-left: 30px;
+
 }
 .text2{
   font-weight: 600;
