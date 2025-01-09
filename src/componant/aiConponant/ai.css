@@ -1,7 +1,7 @@
 .main-api-div {
     width: 100%;
-   height: auto;
-    background-color: #ece9e6;
+    min-height:50vh;
+    background-color: #ffffff;
     display: flex;
 
     justify-content: center;
@@ -22,7 +22,7 @@
   
   .loading-img{
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
     width: 160px;
     transform: translate(-50%, -50%);
