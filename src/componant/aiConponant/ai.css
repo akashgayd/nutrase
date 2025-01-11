@@ -658,4 +658,8 @@ padding: 10px;
   .reload-btn{
     left: 20%;
   }
+  .many-input-field{
+    height: auto;
+    padding: 15px;
+  }
   }
